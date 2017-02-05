@@ -10,51 +10,68 @@
 # There are a number of techniques that we can use to fix this example. One is 
 # a fundamental concept in OOP known as Inheritance. Your exercise is to research 
 # Inheritance in Ruby, and use it to remove the duplication (or DRY up) the code 
-# below. You must also write the driver code to test your classes.
-
+# below. You must also write the driver code to test your classes
 class SimpleCalculator
 
+
   def add(first_number, second_number)
-    first_number + second_number
+    @add = first_number + second_number
   end
 
   def subtract(first_number, second_number)
-    first_number - second_number
+    @substract = first_number - second_number
   end
 
   def multiply(first_number, second_number)
-    first_number * second_number
+    @multiply = first_number * second_number
   end
 
   def divide(first_number, second_number)
-    first_number / second_number
+    @divide = first_number / second_number
   end
+end 
 
-end
-
-class FancyCalculator
-
-  def add(first_number, second_number)
-    first_number + second_number
-  end
-
-  def subtract(first_number, second_number)
-    first_number - second_number
-  end
-
-  def multiply(first_number, second_number)
-    first_number * second_number
-  end
-
-  def divide(first_number, second_number)
-    first_number / second_number
-  end
+class FancyCalculator < SimpleCalculator 
 
   def square_root(number)
-    Math.sqrt(number)
+    @square_root = Math.sqrt(number)
   end
-
-end
+end 
 
 # Write your own driver code below:
+simplecalculator = SimpleCalculator.new
+fancycalculator = FancyCalculator.new
 
+result = simplecalculator.add(20, 10)
+
+puts "Your method returned:"
+puts result
+puts
+
+if result == 30
+  puts "PASS!"
+else
+  puts "F"
+end
+
+result = fancycalculator.subtract(50, 20)
+puts "Your method returned:"
+puts result
+puts
+
+if result == 30
+  puts "PASS!"
+else
+  puts "F"
+end
+
+result = fancycalculator.square_root(16)
+puts "Your method returned:"
+puts result
+puts
+
+if result == 4
+  puts "PASS!"
+else
+  puts "F"
+end
