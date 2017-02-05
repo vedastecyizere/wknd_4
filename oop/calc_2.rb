@@ -3,49 +3,45 @@
 # a different technique using Composition. Hint: Google 'Ruby Mixin Module'. (Using
 # mixin modules is how you achieve Composition with Ruby.)
 
-class SimpleCalculator
-
-  def add(first_number, second_number)
-    first_number + second_number
-  end
-
-  def subtract(first_number, second_number)
-    first_number - second_number
-  end
-
-  def multiply(first_number, second_number)
-    first_number * second_number
-  end
-
-  def divide(first_number, second_number)
-    first_number / second_number
-  end
-
-end
-
-class FancyCalculator
-
-  def add(first_number, second_number)
-    first_number + second_number
-  end
-
-  def subtract(first_number, second_number)
-    first_number - second_number
-  end
-
-  def multiply(first_number, second_number)
-    first_number * second_number
-  end
-
-  def divide(first_number, second_number)
-    first_number / second_number
-  end
-
-  def square_root(number)
-    Math.sqrt(number)
-  end
-
-end
+require "./module.rb"
+require "./simple_calculator.rb"
+require "./fancy_calculator.rb"
 
 # Copy your driver code from the previous exercise below:
 
+simplecalculator = SimpleCalculator.new
+fancycalculator = FancyCalculator.new
+
+result = simplecalculator.add(20, 10)
+
+puts "Your method returned:"
+puts result
+puts
+
+if result == 30
+  puts "PASS!"
+else
+  puts "F"
+end
+
+result = fancycalculator.subtract(50, 20)
+puts "Your method returned:"
+puts result
+puts
+
+if result == 30
+  puts "PASS!"
+else
+  puts "F"
+end
+
+result = fancycalculator.square_root(16)
+puts "Your method returned:"
+puts result
+puts
+
+if result == 4
+  puts "PASS!"
+else
+  puts "F"
+end
