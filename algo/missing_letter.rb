@@ -3,12 +3,17 @@
 # bonus: returns a string of all missing letters as a string. ex: find_missing_letter("ace") would return "bd", write your own test.
 
 def find_missing_letter(range)
-  @ange = range.scan /\w/
-  return @range
+  letters = range.scan /\w/
+  all_letters = (letters.first..letters.last).to_a
+  if all_letters != letters 
 
+    range = all_letters - letters 
+    range = range.join("")
 
-
-end
+  else 
+    puts nil 
+  end 
+end 
 
 # Driver code - don't touch anything below this line.
 puts "TESTING find_missing_letter..."
